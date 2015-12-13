@@ -11,10 +11,9 @@ Router.route('/', {
   name: 'home',
   template: 'home',
   data: function () {
-    var data = {
-      quizzes: Quizzes.find()
-    };
+    return { quizzes: Quizzes.find() };
+  }
+});
 
-    return data;
   }
 });

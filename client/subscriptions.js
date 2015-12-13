@@ -1,0 +1,2 @@
+// Subscriptions.
+Meteor.subscribe('quizzes');

@@ -1,0 +1,9 @@
+<!-- Quiz Result view template. -->
+<template name="quizResult">
+  <header>
+    <h3>{{name}}</h3>
+  </header>
+  <h4>Looks like you scored {{totalCorrectAnswers}} of {{totalQuestions}} correct.</h4>
+  <button>Take Quiz Again!</button>
+  <a href="{{pathFor route='home'}}">Or, take a different quiz.</a>
+</template>

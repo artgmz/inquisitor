@@ -1,33 +1,18 @@
-// Subscriptions.
-Meteor.subscribe('quizzes');
-
-// Quiz Card partial template helpers.
-Template.quizCard.helpers({
-  totalQuestions: function () {
-    var self = this;
-    return self.questions && self.questions.length;
-  }
-});
-
-// Quiz Card partial template events.
-Template.quizCard.events({
-  'click .quiz': function () {
-    var self = this;
-    Router.go('quiz', { _id: self._id });
-  }
-});
-
-// Take Quiz view template data setup.
+// Quiz view template data initialization.
 Template.quiz.onCreated(function () {
   var self = this;
 
+  // Index of first question in quiz is always 0.
   self.currentQuestionIdx = new ReactiveVar(0);
 
+  // User must select an answer before being able to continue.
   Session.set('disableNextStepButton', true);
+
+  // Track how many of the user's answers are correct.
   Session.set('numCorrectAnswers', 0);
 });
 
-// Take Quiz view template helpers.
+// Quiz view template helpers.
 Template.quiz.helpers({
   disableNextStepButton: function () {
     return Session.get('disableNextStepButton');
@@ -40,9 +25,11 @@ Template.quiz.helpers({
     return Template.instance().currentQuestionIdx.get() + 1;
   },
   nextStepButtonLabel: function () {
+    var self = this;
     var currentQuestionNum = Template.instance().currentQuestionIdx.get() + 1;
     var totalQuestions = self.questions && self.questions.length;
 
+    // Next step is 'Continue' unless user is on the quiz's last question.
     return (currentQuestionNum === totalQuestions) ? 'Finish' : 'Continue';
   },
   totalQuestions: function () {
@@ -51,7 +38,7 @@ Template.quiz.helpers({
   }
 });
 
-// Take Quiz view template events.
+// Quiz view template events.
 Template.quiz.events({
   'click #nextStep': function (event, template) {
     var self = this;
@@ -64,48 +51,22 @@ Template.quiz.events({
       Session.set('numCorrectAnswers', Session.get('numCorrectAnswers') + 1);
     }
 
+    // If user is on the quiz's last question, go to quiz result route.
     if ((currentQuestionIdx + 1) === totalQuestions) {
-      Router.go('quiz-results', { _id: self._id });
+      Router.go('quizResult', { _id: self._id });
     }
+    // Else, go on to the next question in the quiz.
     else {
-      // Disable button for next question.
+      // Disable the next step button for the next question.
       Session.set('disableNextStepButton', true);
 
-      // Radio buttons for next question.
+      // Ensure we don't have a pre-selected answer in the next question.
       _.each(document.getElementsByName('answerOption'), function (radioButton) {
         radioButton.checked = false;
       });
 
-      // Trigger loading of next question.
+      // Set the current question's index to the next question to trigger loading.
       Template.instance().currentQuestionIdx.set(currentQuestionIdx + 1);
     }
-  }
-});
-
-// Take Quiz Question partial template events.
-Template.quizQuestion.events({
-  'change input:radio': function (event, template) {
-    if (Session.get('disableNextStepButton')) {
-      Session.set('disableNextStepButton', false);
-    }
-  }
-});
-
-// Take Quiz Results view template helpers.
-Template.results.helpers({
-  totalCorrectAnswers: function () {
-    return Session.get('numCorrectAnswers');
-  },
-  totalQuestions: function () {
-    var self = this;
-    return self.questions && self.questions.length;
-  }
-});
-
-// Take Quiz Results view template events.
-Template.results.events({
-  'click button': function () {
-    var self = this;
-    Router.go('quiz', { _id: self._id });
   }
 });

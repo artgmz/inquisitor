@@ -1,0 +1,15 @@
+<!-- Question partial template. -->
+<template name="question">
+  <h4>{{prompt}}</h4>
+
+  <form>
+    {{#each options}}
+      <div class="radio">
+        <label>
+          <input type="radio" name="answerOption" value="{{this}}">
+          {{this}}
+        </label>
+      </div>
+    {{/each}}
+  </form>
+</template>

@@ -1,7 +1,10 @@
 // Quiz Card partial template helpers.
 Template.quizCard.helpers({
-  questionCount: function () {
+  totalQuestions: function () {
     var self = this;
-    return self.questions.length;
+    return self.questions && self.questions.length;
+  }
+});
+
   }
 });

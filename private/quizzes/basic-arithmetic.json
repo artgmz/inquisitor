@@ -13,14 +13,14 @@
       "answer": "2"
     },
     {
-      "prompt": "4 / 2 =",
+      "prompt": "6 / 2 =",
       "options": [
-        "2",
+        "0",
         "1",
         "4",
-        "0"
+        "3"
       ],
-      "answer": "2"
+      "answer": "3"
     },
     {
       "prompt": "What is the result when you subtract 2 from 7?",

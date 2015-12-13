@@ -34,3 +34,47 @@
   </li>
 </template>
 
+<!-- Take Quiz view template. -->
+<template name="quiz">
+  <header>
+    <h3>{{name}}</h3>
+  </header>
+
+  {{> quizQuestion currentQuestion}}
+
+  <footer>
+    <p>
+      Question {{currentQuestionNum}} of {{totalQuestions}} -
+      <a href="{{pathFor route='home'}}">Quit Quiz</a>
+    </p>
+    <button id="nextStep" disabled="{{disableNextStepButton}}">
+      {{nextStepButtonLabel}}
+    </button>
+  </footer>
+</template>
+
+<!-- Take Quiz Question partial template. -->
+<template name="quizQuestion">
+  <h4>{{prompt}}</h4>
+
+  <form>
+    {{#each options}}
+      <div class="radio">
+        <label>
+          <input type="radio" name="answerOption" value="{{this}}">
+          {{this}}
+        </label>
+      </div>
+    {{/each}}
+  </form>
+</template>
+
+<!-- Take Quiz Results view template -->
+<template name="results">
+  <header>
+    <h3>{{name}}</h3>
+  </header>
+  <h4>Looks like you scored {{totalCorrectAnswers}} of {{totalQuestions}} correct.</h4>
+  <button>Take Quiz Again!</button>
+  <a href="{{pathFor route='home'}}">Or, take a different quiz.</a>
+</template>

@@ -21,3 +21,4 @@ insecure                # Allow all DB writes from clients (for prototyping)
 iron:router             # Routing for Meteor
 less                    # Compile LESS into CSS
 huttonr:bootstrap3      # Uncompiled LESS for Bootstrap 3
+reactive-var            # Allow the creation of reactive variables

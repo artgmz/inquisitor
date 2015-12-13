@@ -1,3 +1,6 @@
+// Subscriptions.
+Meteor.subscribe('quizzes');
+
 // Quiz Card partial template helpers.
 Template.quizCard.helpers({
   totalQuestions: function () {

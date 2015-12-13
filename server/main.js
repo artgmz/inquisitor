@@ -1,3 +1,8 @@
+// Publications.
+Meteor.publish('quizzes', function () {
+  return Quizzes.find();
+});
+
 // Run on server start-up.
 Meteor.startup(function () {
   var basicArithmeticQuiz = {};

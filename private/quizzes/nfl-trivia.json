@@ -1,0 +1,106 @@
+{
+  "name": "NFL Trivia",
+  "description": "Think you know the NFL? Prove it with this short quiz!",
+  "questions": [
+    {
+      "prompt": "Which team was the first Super Bowl champion?",
+      "options": [
+        "New York Giants",
+        "Kansas City Chiefs",
+        "Green Bay Packers",
+        "Chicago Bears"
+      ],
+      "answer": "Green Bay Packers"
+    },
+    {
+      "prompt": "Who (head) coached the Miami Dolphins to the first undefeated season in NFL history?",
+      "options": [
+        "George Wilson",
+        "Don Shula",
+        "Joe Philbin",
+        "Jimmy Johnson"
+      ],
+      "answer": "Don Shula"
+    },
+    {
+      "prompt": "Choose the only player on this list not in the Pro Football Hall of Fame.",
+      "options": [
+        "Marshall Faulk",
+        "Marvin Harrison",
+        "Marcus Allen",
+        "Jerome Bettis"
+      ],
+      "answer": "Marvin Harrison"
+    },
+    {
+      "prompt": "Who is the NFL's career passing yards leader?",
+      "options": [
+        "Peyton Manning",
+        "Brett Favre",
+        "Dan Marino",
+        "Tom Brady"
+      ],
+      "answer": "Peyton Manning"
+    },
+    {
+      "prompt": "Who holds the NFL's single-season sack record?",
+      "options": [
+        "Jared Allen",
+        "Reggie White",
+        "Michael Strahan",
+        "Bruce Smith"
+      ],
+      "answer": "Michael Strahan"
+    },
+    {
+      "prompt": "The team now known as the Indianapolis Colts was previously known as...",
+      "options": [
+        "Baltimore Ravens",
+        "Cleveland Browns",
+        "Baltimore Colts",
+        "Baltimore Orioles"
+      ],
+      "answer": "Baltimore Colts"
+    },
+    {
+      "prompt": "Which city has never hosted an NFL team?",
+      "options": [
+        "Honolulu, Hawai'i",
+        "Los Angeles, California",
+        "Canton, Ohio",
+        "Anaheim, California"
+      ],
+      "answer": "Honolulu, Hawai'i"
+    },
+    {
+      "prompt": "",
+      "options": [
+        "Charles Woodson",
+        "Paul Krause",
+        "Night Train Lane",
+        "Rod Woodson"
+      ],
+      "answer": "Paul Krause"
+    },
+    {
+      "prompt": "Choose the team that does not have a principal owner.",
+      "options": [
+        "Green Bay Packers",
+        "Oakland Raiders",
+        "Pittsburgh Steelers",
+        "New York Giants"
+      ],
+      "answer": "Green Bay Packers"
+    },
+    {
+      "prompt": "What year was the term \"Super Bowl\" first used to describe the NFL Championship Game?",
+      "options": [
+        "Super Bowl I - 1967",
+        "Super Bowl II - 1968",
+        "Super Bowl III - 1969",
+        "Super Bowl IV - 1970"
+      ],
+      "answer": "Super Bowl III - 1969"
+    }
+  ]
+}

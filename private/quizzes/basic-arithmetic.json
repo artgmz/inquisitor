@@ -1,0 +1,106 @@
+{
+  "name": "Basic Arithmetic",
+  "description": "Test your knowledge of addition, subtraction, multiplication, and division.",
+  "questions": [
+    {
+      "prompt": "What does 1 + 1 equal?",
+      "options": [
+        "1",
+        "0",
+        "2",
+        "-1"
+      ],
+      "answer": "2"
+    },
+    {
+      "prompt": "4 / 2 =",
+      "options": [
+        "2",
+        "1",
+        "4",
+        "0"
+      ],
+      "answer": "2"
+    },
+    {
+      "prompt": "What is the result when you subtract 2 from 7?",
+      "options": [
+        "3",
+        "5",
+        "-5",
+        "9"
+      ],
+      "answer": "5"
+    },
+    {
+      "prompt": "What is 6 x 4?",
+      "options": [
+        "24",
+        "2",
+        "6",
+        "22"
+      ],
+      "answer": "24"
+    },
+    {
+      "prompt": "Name the operation used here: 4 + 3 = 7.",
+      "options": [
+        "Subtraction",
+        "Multiplication",
+        "Division",
+        "Addition"
+      ],
+      "answer": "Addition"
+    },
+    {
+      "prompt": "8 / 1 =",
+      "options": [
+        "1",
+        "8",
+        "81",
+        "7"
+      ],
+      "answer": "8"
+    },
+    {
+      "prompt": "10 + 3 + 2 =",
+      "options": [
+        "15",
+        "9",
+        "13",
+        "12"
+      ],
+      "answer": "15"
+    },
+    {
+      "prompt": "5 x 5 =",
+      "options": [
+        "5",
+        "25",
+        "0",
+        "55"
+      ],
+      "answer": "25"
+    },
+    {
+      "prompt": "What does 11 - 4 + 1 equal?",
+      "options": [
+        "5",
+        "16",
+        "7",
+        "8"
+      ],
+      "answer": "8"
+    },
+    {
+      "prompt": "Name the operation used here: 10 - 1 = 9.",
+      "options": [
+        "Multiplication",
+        "Subtraction",
+        "Division",
+        "Addition"
+      ],
+      "answer": "Subtraction"
+    }
+  ]
+}

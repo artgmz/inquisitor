@@ -4,13 +4,14 @@
     <a href="{{pathFor route='home'}}">
       <h1>inquisitor!</h1>
     </a>
-    <hr />
 
     {{#if currentUser}}
       <button class="btn logOut">Log Out</button>
     {{else}}
       <a href="#" class="signUp">Sign Up</a> or <a href="#" class="logIn">Log In</a>
     {{/if}}
+
+    <hr />
   </header>
 
   {{> yield}}

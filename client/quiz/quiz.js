@@ -5,10 +5,12 @@ Template.quiz.onCreated(function () {
   // Index of first question in quiz is always 0.
   self.currentQuestionIdx = new ReactiveVar(0);
 
-  // User must select an answer before being able to continue.
+  // User must select an answer before being able to continue. Using a session 
+  // variable because we need this data across templates.
   Session.set('disableNextStepButton', true);
 
-  // Track how many of the user's answers are correct.
+  // Track how many of the user's answers are correct. Using a session variable 
+  // because we need this data across templates.
   Session.set('numCorrectAnswers', 0);
 });
 

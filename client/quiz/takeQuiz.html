@@ -1,0 +1,18 @@
+<!-- Take Quiz view template. -->
+<template name="takeQuiz">
+  <header>
+    <h3>{{name}}</h3>
+  </header>
+
+  {{> quizQuestion currentQuestion}}
+
+  <footer>
+    <p>
+      Question {{currentQuestionNum}} of {{totalQuestions}} -
+      <a href="{{pathFor route='quiz' data=this}}">Quit Quiz</a>
+    </p>
+    <button class="btn" id="nextStep" disabled="{{disableNextStepButton}}">
+      {{nextStepButtonLabel}}
+    </button>
+  </footer>
+</template>

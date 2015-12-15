@@ -45,7 +45,7 @@ Meteor.startup(function () {
       }));
     });
 
-    basicArithmeticQuizId = Quizzes.find({ name: 'Basic Arithmetic' })._id;
+    basicArithmeticQuizId = Quizzes.findOne({ name: 'Basic Arithmetic' })._id;
 
     Quizzes.update(basicArithmeticQuizId,  { $set: { scores: quizScoreIds } });
   }

@@ -1,74 +1,69 @@
-// Quiz view template data initialization.
-Template.quiz.onCreated(function () {
-  var self = this;
-
-  // Index of first question in quiz is always 0.
-  self.currentQuestionIdx = new ReactiveVar(0);
-
-  // User must select an answer before being able to continue. Using a session 
-  // variable because we need this data across templates.
-  Session.set('disableNextStepButton', true);
-
-  // Track how many of the user's answers are correct. Using a session variable 
-  // because we need this data across templates.
-  Session.set('numCorrectAnswers', 0);
-});
-
 // Quiz view template helpers.
 Template.quiz.helpers({
-  disableNextStepButton: function () {
-    return Session.get('disableNextStepButton');
-  },
-  currentQuestion: function () {
+  hasLeaderboardScores: function () {
     var self = this;
-    return self.questions && self.questions[Template.instance().currentQuestionIdx.get()];
-  },
-  currentQuestionNum: function () {
-    return Template.instance().currentQuestionIdx.get() + 1;
-  },
-  nextStepButtonLabel: function () {
-    var self = this;
-    var currentQuestionNum = Template.instance().currentQuestionIdx.get() + 1;
-    var totalQuestions = self.questions && self.questions.length;
+    var sortedQuizScores = [];
 
-    // Next step is 'Continue' unless user is on the quiz's last question.
-    return (currentQuestionNum === totalQuestions) ? 'Finish' : 'Continue';
+    sortedQuizScores = _.sortBy(self.quizScores, function (quizScore) {
+      return quizScore.correctAnswers;
+    }).reverse();
+
+    return sortedQuizScores.length > 0;
+  },
+  hasUserScores: function () {
+    var self = this;
+    var sortedQuizScores = [];
+    var userQuizScores = [];
+
+    if (Meteor.user()) {
+      userQuizScores = _.filter(self.quizScores, function (quizScore) {
+        return quizScore.username === Meteor.user().username;
+      });
+
+      sortedQuizScores = _.sortBy(userQuizScores, function (quizScore) {
+        return quizScore.createdAt;
+      }).reverse();
+    }
+
+    return sortedQuizScores.length > 0;
+  },
+  leaderboardScores: function () {
+    var self = this;
+    var sortedQuizScores = [];
+
+    sortedQuizScores = _.sortBy(self.quizScores, function (quizScore) {
+      return quizScore.correctAnswers;
+    }).reverse();
+
+    return _.first(sortedQuizScores, 5);
   },
   totalQuestions: function () {
     var self = this;
-    return self.questions && self.questions.length;
+    return self.quiz.questions && self.quiz.questions.length;
+  },
+  userScores: function () {
+    var self = this;
+    var sortedQuizScores = [];
+    var userQuizScores = [];
+
+    if (Meteor.user()) {
+      userQuizScores = _.filter(self.quizScores, function (quizScore) {
+        return quizScore.username === Meteor.user().username;
+      });
+
+      sortedQuizScores = _.sortBy(userQuizScores, function (quizScore) {
+        return quizScore.createdAt;
+      }).reverse();
+    }
+
+    return _.first(sortedQuizScores, 5);
   }
 });
 
 // Quiz view template events.
 Template.quiz.events({
-  'click #nextStep': function (event, template) {
+  'click button': function () {
     var self = this;
-    var chosenAnswer = template.find('input:radio:checked').value;
-    var currentQuestionIdx = Template.instance().currentQuestionIdx.get();
-    var correctAnswer = self.questions[currentQuestionIdx].answer;
-    var totalQuestions = self.questions && self.questions.length;
-
-    if (chosenAnswer === correctAnswer) {
-      Session.set('numCorrectAnswers', Session.get('numCorrectAnswers') + 1);
-    }
-
-    // If user is on the quiz's last question, go to quiz result route.
-    if ((currentQuestionIdx + 1) === totalQuestions) {
-      Router.go('quizResult', { _id: self._id });
-    }
-    // Else, go on to the next question in the quiz.
-    else {
-      // Disable the next step button for the next question.
-      Session.set('disableNextStepButton', true);
-
-      // Ensure we don't have a pre-selected answer in the next question.
-      _.each(document.getElementsByName('answerOption'), function (radioButton) {
-        radioButton.checked = false;
-      });
-
-      // Set the current question's index to the next question to trigger loading.
-      Template.instance().currentQuestionIdx.set(currentQuestionIdx + 1);
-    }
+    Router.go('takeQuiz', { _id: self.quiz._id });
   }
 });

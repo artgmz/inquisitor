@@ -13,6 +13,6 @@ Template.quizResult.helpers({
 Template.quizResult.events({
   'click button': function () {
     var self = this;
-    Router.go('quiz', { _id: self._id });
+    Router.go('takeQuiz', { _id: self._id });
   }
 });

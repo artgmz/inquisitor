@@ -1,18 +1,34 @@
 <!-- Quiz view template. -->
 <template name="quiz">
   <header>
-    <h3>{{name}}</h3>
+    <h3>{{quiz.name}}</h3>
+    <h4>{{quiz.description}} - {{totalQuestions}} Questions</h4>
   </header>
+  <button class="btn">Take this quiz!</button>
+  <div>
+    <h5>Leaderboard</h5>
 
-  {{> question currentQuestion}}
+    {{#if hasLeaderboardScores}}
+      <ol>
+        {{#each leaderboardScores}}
+          {{> quizScore}}
+        {{/each}}
+      </ol>
+    {{else}}
+      <p>No one has taken this quiz. Be the first!</p>
+    {{/if}}
+  </div>
+  <div>
+    <h5>My Scores</h5>
 
-  <footer>
-    <p>
-      Question {{currentQuestionNum}} of {{totalQuestions}} -
-      <a href="{{pathFor route='home'}}">Quit Quiz</a>
-    </p>
-    <button class="btn" id="nextStep" disabled="{{disableNextStepButton}}">
-      {{nextStepButtonLabel}}
-    </button>
-  </footer>
+    {{#if hasUserScores}}
+      <ul>
+        {{#each userScores}}
+          {{> quizScore}}
+        {{/each}}
+      </ul>
+    {{else}}
+      <p>You have yet to save a score for this quiz!</p>
+    {{/if}}
+  </div>
 </template>

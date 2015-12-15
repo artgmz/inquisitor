@@ -1,5 +1,11 @@
 <!-- Home view template. -->
 <template name="home">
+  {{#if currentUser}}
+    <h2>Take any quiz to take from the list below!</h2>
+  {{else}}
+    <h2>Take any quiz from the list below. Sign in to save your results!</h2>
+  {{/if}}
+
   <ul>
     {{#each quizzes}}
       {{> quizCard}}

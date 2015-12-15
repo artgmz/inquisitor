@@ -3,7 +3,14 @@
   <header>
     <h3>{{name}}</h3>
   </header>
-  <h4>Looks like you scored {{totalCorrectAnswers}} of {{totalQuestions}} correct.</h4>
+
+  <h4>You scored {{totalCorrectAnswers}} of {{totalQuestions}} correct.</h4>
+  {{#if currentUser}}
+    <h5>Right on! Your score has been saved.</h5>
+  {{else}}
+    <h5>Sign in to save your score and show off your knowledge!</h5>
+  {{/if}}
+
   <button>Take Quiz Again!</button>
   <a href="{{pathFor route='home'}}">Or, take a different quiz.</a>
 </template>

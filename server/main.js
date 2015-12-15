@@ -3,16 +3,20 @@ Meteor.startup(function () {
   var basicArithmeticQuiz = {};
   var nflTriviaQuiz = {};
   var quizzes = [];
-  var users = [];
+  var userAccounts = [];
 
-  // Seed the database with sample users if none are found.
+  // Seed the database with sample user accounts if none are found.
   if (Meteor.users.find().count() === 0) {
-    users = [
+    userAccounts = [
       JSON.parse(Assets.getText('users/bendingunit154.json')),
       JSON.parse(Assets.getText('users/capt_leela.json')),
       JSON.parse(Assets.getText('users/philip-j-fry.json')),
       JSON.parse(Assets.getText('users/prof.json'))
     ];
+
+    _.each(userAccounts, function (userAccount) {
+      Accounts.createUser(userAccount);
+    });
   }
 
   // Seed the database with sample quizzes if none are found.

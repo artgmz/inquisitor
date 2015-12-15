@@ -4,8 +4,13 @@
     <a href="{{pathFor route='home'}}">
       <h1>inquisitor!</h1>
     </a>
-    {{> loginButtons}}
     <hr />
+
+    {{#if currentUser}}
+      <button class="btn logOut">Log Out</button>
+    {{else}}
+      <a href="#" class="signUp">Sign Up</a> or <a href="#" class="logIn">Log In</a>
+    {{/if}}
   </header>
 
   {{> yield}}
@@ -18,4 +23,8 @@
       in Los Angeles, California.
     </p>
   </footer>
+
+  <!-- Render sign up and log in modal templates for app-wide availabilty. -->
+  {{> signUp}}
+  {{> logIn}}
 </template>

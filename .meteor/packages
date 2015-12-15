@@ -20,5 +20,4 @@ iron:router             # Routing for Meteor
 less                    # Compile LESS into CSS
 huttonr:bootstrap3      # Uncompiled LESS for Bootstrap 3
 reactive-var            # Allow the creation of reactive variables
-accounts-ui             # Simple templates to add login widgets to an app
 accounts-password       # Password support for accounts

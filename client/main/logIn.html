@@ -1,0 +1,23 @@
+<!-- Log In partial template. -->
+<template name="logIn">
+  <div class="modal fade" id="logInModal">
+    <h1>Log In - Welcome back!</h1>
+    <form novalidate>
+      <div class="form-group {{#if invalidUsername}}has-error{{/if}}">
+        <label class="sr-only">Username</label>
+        <input type="text" name="username" class="form-control" placeholder="Username" required>
+        {{#if invalidUsername}}
+          <p class="text-danger">Please input a valid username.</p>
+        {{/if}}
+      </div>
+      <div class="form-group {{#if invalidPassword}}has-error{{/if}}">
+        <label class="sr-only">Password</label>
+        <input type="password" name="password" class="form-control" placeholder="Password" required>
+        {{#if invalidPassword}}
+          <p class="text-danger">Please input a valid password.</p>
+        {{/if}}
+      </div>
+      <input type="submit" class="btn" value="Log In">
+    </form>
+  </div>
+</template>

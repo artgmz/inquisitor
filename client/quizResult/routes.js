@@ -4,6 +4,8 @@ Router.route('/quiz/:_id/result', {
   template: 'quizResult',
   data: function () {
     var self = this;
-    return Quizzes.findOne({ _id: self.params._id });
+
+    // We don't a quiz to update while the user is taking it.
+    return Quizzes.findOne({ _id: self.params._id }, { reactive: false });
   }
 });

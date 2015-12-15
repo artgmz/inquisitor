@@ -1,7 +1,5 @@
 // Run on server start-up.
 Meteor.startup(function () {
-  var basicArithmeticQuiz = {};
-  var nflTriviaQuiz = {};
   var quizzes = [];
   var userAccounts = [];
 
@@ -21,10 +19,10 @@ Meteor.startup(function () {
 
   // Seed the database with sample quizzes if none are found.
   if (Quizzes.find().count() === 0) {
-    basicArithmeticQuiz = JSON.parse(Assets.getText('quizzes/basic-arithmetic.json'));
-    nflTriviaQuiz = JSON.parse(Assets.getText('quizzes/nfl-trivia.json'));
-
-    quizzes = [basicArithmeticQuiz, nflTriviaQuiz];
+    quizzes = [
+      JSON.parse(Assets.getText('quizzes/basic-arithmetic.json')),
+      JSON.parse(Assets.getText('quizzes/nfl-trivia.json'))
+    ];
 
     _.each(quizzes, function (quiz) {
       Quizzes.insert(quiz);

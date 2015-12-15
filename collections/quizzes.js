@@ -1,2 +1,2 @@
-// Quizzes collection. Consist of name, description, and questions.
+// Quizzes collection.
 Quizzes = new Mongo.Collection('quizzes');

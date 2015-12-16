@@ -1,8 +1,20 @@
 // Publications.
 Meteor.publish('quizzes', function () {
-  return Quizzes.find();
+  var quizzes = Quizzes.find();
+
+  if (quizzes) {
+    return quizzes;
+  }
+
+  this.ready();
 });
 
 Meteor.publish('quizScores', function () {
-  return QuizScores.find();
+  var quizScores = QuizScores.find();
+
+  if (quizScores) {
+    return quizScores;
+  }
+
+  this.ready();
 });

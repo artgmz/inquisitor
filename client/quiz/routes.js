@@ -27,11 +27,6 @@ Router.route('/quiz/:_id', {
           quizScores: quizScores
         };
       }
-      // Else return null to render a 404 page.
-      else {
-        return null;
-      }
-      
     }
   }
 });

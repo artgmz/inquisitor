@@ -1,6 +1,7 @@
 // Global route configuration.
 Router.configure({
   layoutTemplate: 'main',
+  notFoundTemplate: 'notFound', // Needed for server 404 page.
   onAfterAction: function () {
     // Add title tag.
     document.title = 'inquisitor!'
@@ -11,5 +12,5 @@ Router.configure({
   }
 });
 
-// Global route plugins.
+// Global route plugins (needed for client 404 page).
 Router.plugin('dataNotFound', { notFoundTemplate: 'notFound' });

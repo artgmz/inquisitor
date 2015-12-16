@@ -1,7 +1,8 @@
-<!-- Sign Up partial template. -->
+<!-- Sign Up modal template. -->
 <template name="signUp">
   <div class="modal fade" id="signUpModal">
     <h1>Sign Up - It's free!</h1>
+
     <form novalidate>
       <div class="form-group {{#if invalidUsername}}has-error{{/if}}">
         <label class="sr-only">Username</label>
@@ -10,6 +11,7 @@
           <p class="text-danger">Please input a valid username.</p>
         {{/if}}
       </div>
+
       <div class="form-group {{#if invalidPassword}}has-error{{/if}}">
         <label class="sr-only">Password</label>
         <input type="password" name="password" class="form-control" placeholder="Password" required>
@@ -17,6 +19,7 @@
           <p class="text-danger">Please input a valid password.</p>
         {{/if}}
       </div>
+
       <input type="submit" class="btn" value="Sign Up">
     </form>
   </div>

@@ -1,38 +1,34 @@
-// Log In partial template initialization.
+// Log In modal template initialization.
 Template.logIn.onCreated(function () {
   var self = this;
 
-  // Show error UI if username is invalid. Using a session variable because we 
-  // need this data in a callback.
+  // Show invalidity errors. Session variables necessary for use in callbacks.
   Session.set('invalidUsername', false);
-
-  // Show error UI if password is invalid. Using a session variable because we 
-  // need this data in a callback.
   Session.set('invalidPassword', false);
 });
 
-// Log In partial template helpers.
+// Log In modal template helpers.
 Template.logIn.helpers({
-  invalidUsername: function () {
-    return Session.get('invalidUsername');
-  },
   invalidPassword: function () {
     return Session.get('invalidPassword');
+  },
+  invalidUsername: function () {
+    return Session.get('invalidUsername');
   }
 });
 
-// Log In partial template events.
+// Log In modal template events.
 Template.logIn.events({
-  'keyup input[name$="username"]': function () {
-    // Remove invalidity when invalid input is modified.
-    if (Session.get('invalidUsername')) {
-      Session.set('invalidUsername', false);
-    }
-  },
   'keyup input[name$="password"]': function () {
-    // Remove invalidity when invalid input is modified.
+    // Hide error when invalid input is modified.
     if (Session.get('invalidPassword')) {
       Session.set('invalidPassword', false);
+    }
+  },
+  'keyup input[name$="username"]': function () {
+    // Hide error when invalid input is modified.
+    if (Session.get('invalidUsername')) {
+      Session.set('invalidUsername', false);
     }
   },
   'submit form': function (event, template) {
@@ -41,17 +37,15 @@ Template.logIn.events({
 
     event.preventDefault();
 
-    // Username field is required.
+    // Check for data in required fields, stopping if any are empty.
     if (username === '') {
       Session.set('invalidUsername', true);
     }
 
-    // Password field is required.
     if (password === '') {
       Session.set('invalidPassword', true);
     }
 
-    // If either required field is empty, don't continue.
     if (username === '' || password === '') {
       return;
     }
@@ -59,7 +53,6 @@ Template.logIn.events({
     Meteor.loginWithPassword(username, password, function (error) {
       if (error) {
         switch (error.error) {
-          // error.reason = "Match failed," so likely an incorrect username.
           case 400:
               Session.set('invalidUsername', true);
             break;
@@ -67,7 +60,6 @@ Template.logIn.events({
             if (error.reason === 'Incorrect password') {
               Session.set('invalidPassword', true);
             }
-            // error.reason = "User not found", so likely an incorrect username.
             else {
               Session.set('invalidUsername', true);
             }

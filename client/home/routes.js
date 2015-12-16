@@ -2,7 +2,14 @@
 Router.route('/', {
   name: 'home',
   template: 'home',
+  waitOn: function () {
+    return Meteor.subscribe('quizzes');
+  },
   data: function () {
-    return { quizzes: Quizzes.find() };
+    var self = this;
+
+    if (self.ready()) {
+      return { quizzes: Quizzes.find() };
+    }
   }
 });

@@ -5,26 +5,29 @@ Router.route('/quiz/:_id', {
   waitOn: function () {
     var self = this;
 
-    // Wait until we get our quiz back.
-    return Meteor.subscribe('quizzes', self.params._id);
+    return [
+      Meteor.subscribe('quizzes', self.params._id),
+      Meteor.subscribe('quizScores')
+    ];
   },
   data: function () {
     var self = this;
     var quizScores = [];
     var quiz = {};
 
-    // Get quiz score data once quiz is ready to go.
     if (self.ready()) {
       quiz = Quizzes.findOne({ _id: self.params._id });
 
+      // If we have a quiz, get its scores.
       if (quiz) {
         quizScores = QuizScores.find({ _id: { $in: quiz.scores } }).fetch();
 
         return {
-          quizScores: quizScores,
-          quiz: quiz
+          quiz: quiz,
+          quizScores: quizScores
         };
       }
+      // Else return null to render a 404 page.
       else {
         return null;
       }
@@ -37,10 +40,16 @@ Router.route('/quiz/:_id', {
 Router.route('/quiz/:_id/take', {
   name: 'takeQuiz',
   template: 'takeQuiz',
+  waitOn: function () {
+    var self = this;
+    return Meteor.subscribe('quizzes', self.params._id);
+  },
   data: function () {
     var self = this;
 
-    // We don't want a quiz to update while the user is taking it.
-    return Quizzes.findOne({ _id: self.params._id }, { reactive: false });
+    if (self.ready()) {
+      // We don't want a quiz to update while the user is taking it.
+      return Quizzes.findOne({ _id: self.params._id }, { reactive: false });
+    }
   }
 });

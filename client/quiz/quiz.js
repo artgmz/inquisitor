@@ -2,39 +2,23 @@
 Template.quiz.helpers({
   hasLeaderboardScores: function () {
     var self = this;
-    var sortedQuizScores = [];
-
-    sortedQuizScores = _.sortBy(self.quizScores, function (quizScore) {
-      return quizScore.correctAnswers;
-    }).reverse();
-
-    return sortedQuizScores.length > 0;
+    return self.quizScores.length > 0;
   },
   hasUserScores: function () {
     var self = this;
-    var sortedQuizScores = [];
     var userQuizScores = [];
 
     if (Meteor.user()) {
       userQuizScores = _.filter(self.quizScores, function (quizScore) {
         return quizScore.username === Meteor.user().username;
       });
-
-      sortedQuizScores = _.sortBy(userQuizScores, function (quizScore) {
-        return quizScore.createdAt;
-      }).reverse();
     }
 
-    return sortedQuizScores.length > 0;
+    return userQuizScores.length > 0;
   },
   leaderboardScores: function () {
     var self = this;
-    var sortedQuizScores = [];
-
-    sortedQuizScores = _.sortBy(self.quizScores, function (quizScore) {
-      return quizScore.correctAnswers;
-    }).reverse();
-
+    var sortedQuizScores = _.sortBy(self.quizScores, 'correctAnswers').reverse();
     return _.first(sortedQuizScores, 5);
   },
   totalQuestions: function () {
@@ -51,9 +35,7 @@ Template.quiz.helpers({
         return quizScore.username === Meteor.user().username;
       });
 
-      sortedQuizScores = _.sortBy(userQuizScores, function (quizScore) {
-        return quizScore.createdAt;
-      }).reverse();
+      sortedQuizScores = _.sortBy(userQuizScores, 'createdAt').reverse();
     }
 
     return _.first(sortedQuizScores, 5);

@@ -1,0 +1,107 @@
+{
+  "name": "U.S. State Capitals",
+  "description": "Do you know Lansing from Lincoln? Give this quiz a shot to find out.",
+  "questions": [
+    {
+      "prompt": "What is the capital of Minnesota?",
+      "options": [
+        "Duluth",
+        "Rochester",
+        "Saint Paul",
+        "Minneapolis"
+      ],
+      "answer": "Saint Paul"
+    },
+    {
+      "prompt": "What is the capital of New Hampshire?",
+      "options": [
+        "Concord",
+        "Nashua",
+        "Manchester",
+        "Dover"
+      ],
+      "answer": "Concord"
+    },
+    {
+      "prompt": "What is the capital of Washington?",
+      "options": [
+        "Spokane",
+        "Tacoma",
+        "Olympia",
+        "Seattle"
+      ],
+      "answer": "Olympia"
+    },
+    {
+      "prompt": "What is the capital of Texas?",
+      "options": [
+        "Houston",
+        "Dallas",
+        "San Antonio",
+        "Austin"
+      ],
+      "answer": "Austin"
+    },
+    {
+      "prompt": "What is the capital of North Dakota?",
+      "options": [
+        "West Fargo",
+        "Bismarck",
+        "Fargo",
+        "Grand Forks"
+      ],
+      "answer": "Bismarck"
+    },
+    {
+      "prompt": "What is the capital of California?",
+      "options": [
+        "San Diego",
+        "Los Angeles",
+        "San Francisco",
+        "Sacramento"
+      ],
+      "answer": "Sacramento"
+    },
+    {
+      "prompt": "What is the capital of Missouri?",
+      "options": [
+        "Jefferson City",
+        "Kansas City",
+        "St Louis",
+        "Springfield"
+      ],
+      "answer": "Jefferson City"
+    },
+    {
+      "prompt": "What is the capital of Georgia?",
+      "options": [
+        "Macon",
+        "Atlanta",
+        "Columbus",
+        "Savannah"
+      ],
+      "answer": "Atlanta"
+    },
+    {
+      "prompt": "What is the capital of Kentucky?",
+      "options": [
+        "Lexington",
+        "Frankfort",
+        "Louisville",
+        "Richmond"
+      ],
+      "answer": "Frankfort"
+    },
+    {
+      "prompt": "What is the capital of New York?",
+      "options": [
+        "Buffalo",
+        "New York",
+        "Rochester",
+        "Albany"
+      ],
+      "answer": "Albany"
+    }
+  ],
+  "scores": []
+}

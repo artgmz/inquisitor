@@ -24,7 +24,8 @@ Meteor.startup(function () {
   if (Quizzes.find().count() === 0) {
     quizzes = [
       JSON.parse(Assets.getText('quizzes/basic-arithmetic.json')),
-      JSON.parse(Assets.getText('quizzes/nfl-trivia.json'))
+      JSON.parse(Assets.getText('quizzes/nfl-trivia.json')),
+      JSON.parse(Assets.getText('quizzes/us-state-capitals.json'))
     ];
 
     _.each(quizzes, function (quiz) {

@@ -1,14 +1,17 @@
 <!-- Home view template. -->
 <template name="home">
-  {{#if currentUser}}
-    <h2>Take any quiz to take from the list below!</h2>
-  {{else}}
-    <h2>Take any quiz from the list below. Sign in to save your results!</h2>
-  {{/if}}
+  <div class="home">
+    {{#if currentUser}}
+      <h2>Take any quiz to take from the list below!</h2>
+    {{else}}
+      <h2>Take any quiz from the list below. Sign in to save your results!</h2>
+    {{/if}}
 
-  <ul>
-    {{#each quizzes}}
-      {{> quizCard}}
-    {{/each}}
-  </ul>
+    <ul class="list-unstyled">
+      {{#each quizzes}}
+        {{> quizCard}}
+      {{/each}}
+    </ul>
+    <div class="clearfix"></div>
+  </div>
 </template>

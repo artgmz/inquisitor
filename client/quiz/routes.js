@@ -16,12 +16,19 @@ Router.route('/quiz/:_id', {
     // Get quiz score data once quiz is ready to go.
     if (self.ready()) {
       quiz = Quizzes.findOne({ _id: self.params._id });
-      quizScores = QuizScores.find({ _id: { $in: quiz.scores } }).fetch();
 
-      return {
-        quizScores: quizScores,
-        quiz: quiz
-      };
+      if (quiz) {
+        quizScores = QuizScores.find({ _id: { $in: quiz.scores } }).fetch();
+
+        return {
+          quizScores: quizScores,
+          quiz: quiz
+        };
+      }
+      else {
+        return null;
+      }
+      
     }
   }
 });

@@ -7,3 +7,6 @@ Router.configure({
     document.title = 'inquisitor!';
   }
 });
+
+// Global route plugins.
+Router.plugin('dataNotFound', { notFoundTemplate: 'notFound' });

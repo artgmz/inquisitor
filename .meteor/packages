@@ -18,6 +18,6 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 
 iron:router             # Routing for Meteor
 less                    # Compile LESS into CSS
-huttonr:bootstrap3      # Uncompiled LESS for Bootstrap 3
 reactive-var            # Allow the creation of reactive variables
 accounts-password       # Password support for accounts
+twbs:bootstrap          # Bootstrap 3 for responsive styling

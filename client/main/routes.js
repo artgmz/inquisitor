@@ -2,9 +2,12 @@
 Router.configure({
   layoutTemplate: 'main',
   onAfterAction: function () {
-    // Set the title for all pages here because Iron Router prepends the <head>
-    // tag internally, so we can't set the title as we normally would.
-    document.title = 'inquisitor!';
+    // Add title tag.
+    document.title = 'inquisitor!'
+
+    // Add meta tag for mobile.
+    // FIXME: This appears to add the tag twice...why?
+    $('head').append('<meta name="viewport" content="width=device-width, initial-scale=1">');
   }
 });
 

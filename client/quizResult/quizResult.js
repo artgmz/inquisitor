@@ -2,6 +2,15 @@
 Template.quizResult.onCreated(function () {
   var self = this;
 
+  // If the user is getting to this view without having taken a quiz (i.e. on reload),
+  // take them back to the home page.
+  if (!Session.get('quizInitiated')) {
+    Router.go('home');
+  }
+
+  // Reset quiz initiation variable for later use.
+  Session.set('quizInitiated', false);
+
   // If the user is logged in, save the quiz result ("score"). Otherwise wait
   // until the user logs in to save the quiz result.
   self.autorun(function (computation) {

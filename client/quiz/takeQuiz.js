@@ -5,6 +5,10 @@ Template.takeQuiz.onCreated(function () {
   // Index of first question in quiz is always 0.
   self.currentQuestionIdx = new ReactiveVar(0);
 
+  // Indicate that the user has initiated the taking of a quiz. Using a session 
+  // variable because we need this data across templates.
+  Session.set('quizInitiated', true);
+
   // User must select an answer before being able to continue. Using a session 
   // variable because we need this data across templates.
   Session.set('disableNextStepButton', true);

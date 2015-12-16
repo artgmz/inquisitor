@@ -20,15 +20,15 @@ Template.takeQuiz.onCreated(function () {
 
 // Take Quiz view template helpers.
 Template.takeQuiz.helpers({
-  disableNextStepButton: function () {
-    return Session.get('disableNextStepButton');
-  },
   currentQuestion: function () {
     var self = this;
     return self.questions && self.questions[Template.instance().currentQuestionIdx.get()];
   },
   currentQuestionNum: function () {
     return Template.instance().currentQuestionIdx.get() + 1;
+  },
+  disableNextStepButton: function () {
+    return Session.get('disableNextStepButton');
   },
   nextStepButtonLabel: function () {
     var self = this;
@@ -66,7 +66,8 @@ Template.takeQuiz.events({
       // Disable the next step button for the next question.
       Session.set('disableNextStepButton', true);
 
-      // Ensure we don't have a pre-selected answer in the next question.
+      // Ensure we don't have a pre-selected answer in the next question. Use dcoument
+      // instead of template because answerOption elements are in a partial template.
       _.each(document.getElementsByName('answerOption'), function (radioButton) {
         radioButton.checked = false;
       });

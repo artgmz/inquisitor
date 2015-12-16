@@ -27,7 +27,7 @@ Template.quiz.helpers({
   },
   userScores: function () {
     var self = this;
-    var sortedQuizScores = [];
+    var sortedUserQuizScores = [];
     var userQuizScores = [];
 
     if (Meteor.user()) {
@@ -35,10 +35,10 @@ Template.quiz.helpers({
         return quizScore.username === Meteor.user().username;
       });
 
-      sortedQuizScores = _.sortBy(userQuizScores, 'createdAt').reverse();
+      sortedUserQuizScores = _.sortBy(userQuizScores, 'createdAt').reverse();
     }
 
-    return _.first(sortedQuizScores, 5);
+    return _.first(sortedUserQuizScores, 5);
   }
 });
 

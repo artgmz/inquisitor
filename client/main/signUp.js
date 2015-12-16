@@ -38,7 +38,6 @@ Template.signUp.events({
   'submit form': function (event, template) {
     var newUser = {};
     var password = event.target.password.value.trim();
-    var signUpModal = template.find('#signUpModal');
     var username = event.target.username.value.trim();
 
     event.preventDefault();
@@ -78,8 +77,7 @@ Template.signUp.events({
         }
       }
       else {
-        // Use jQuery to access Bootstrap's modal functionality.
-        $(signUpModal).modal('hide');
+        template.$('#signUpModal').modal('hide');
       }
     });
   }

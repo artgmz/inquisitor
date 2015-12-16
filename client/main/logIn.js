@@ -36,7 +36,6 @@ Template.logIn.events({
     }
   },
   'submit form': function (event, template) {
-    var logInModal = template.find('#logInModal');
     var password = event.target.password.value.trim();
     var username = event.target.username.value.trim();
 
@@ -81,8 +80,7 @@ Template.logIn.events({
         }
       }
       else {
-        // Use jQuery to access Bootstrap's modal functionality.
-        $(logInModal).modal('hide');
+        template.$('#logInModal').modal('hide');
       }
     });
   }

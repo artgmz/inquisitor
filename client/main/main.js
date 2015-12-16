@@ -4,19 +4,11 @@ Template.main.events({
     Meteor.logout();
   },
   'click .signUp': function (event, template) {
-    var signUpModal = template.find('#signUpModal');
-
     event.preventDefault();
-
-    // Use jQuery to access Bootstrap's modal functionality.
-    $(signUpModal).modal('show');
+    template.$('#signUpModal').modal('show');
   },
   'click .logIn': function (event, template) {
-    var logInModal = template.find('#logInModal');
-
     event.preventDefault();
-
-    // Use jQuery to access Bootstrap's modal functionality.
-    $(logInModal).modal('show');
+    template.$('#logInModal').modal('show');
   }
 });

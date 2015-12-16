@@ -1,4 +1,4 @@
-// Sign Up partial template data initialization.
+// Sign Up partial template initialization.
 Template.signUp.onCreated(function () {
   var self = this;
 

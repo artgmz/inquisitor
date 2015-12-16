@@ -1,4 +1,4 @@
-// Take Quiz view template data initialization.
+// Take Quiz view template initialization.
 Template.takeQuiz.onCreated(function () {
   var self = this;
 

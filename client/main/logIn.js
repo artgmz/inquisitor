@@ -1,4 +1,4 @@
-// Log In partial template data initialization.
+// Log In partial template initialization.
 Template.logIn.onCreated(function () {
   var self = this;
 

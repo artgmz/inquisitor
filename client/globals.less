@@ -1,0 +1,83 @@
+// Global styles.
+
+// Screen sizes.
+@screen-sm-min: 768px;
+@screen-md-min: 992px;
+@screen-lg-min: 1200px;
+
+// Colors.
+@color-primary: #714897;
+@color-primary-darker: darken(@color-primary, 10%);
+@color-primary-lighter: lighten(@color-primary, 40%);
+
+// Defaults.
+body {
+  background-color: #eee
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  line-height: 1.2 !important;
+}
+
+a {
+  &:link,
+  &:visited {
+    color: @color-primary;
+  }
+
+  &:hover {
+    color: @color-primary-darker;
+    text-decoration: none;
+  }
+
+  &:active {
+    color: @color-primary;
+  }
+}
+
+hr {
+  border-color: @color-primary-lighter;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-color: @color-primary;
+  box-shadow: 0 1px 1px rgba(113, 72, 51, 0.075) inset, 0 0 8px rgba(113, 72, 51, 0.6);
+  outline: 0 none;
+}
+
+.btn-primary {
+  background-color: @color-primary;
+  border-color: @color-primary;
+
+  &:focus,
+  &:hover,
+  &:active,
+  &:active:hover,
+  &:active:focus {
+    background-color: @color-primary;
+    border-color: @color-primary;
+  }
+}
+
+// Small devices (tablets, 768px and up)
+@media (min-width: @screen-sm-min) {}
+
+// Medium devices (desktops, 992px and up)
+@media (min-width: @screen-md-min) {}
+
+// Large devices (large desktops, 1200px and up)
+@media (min-width: @screen-lg-min) {}

@@ -1,10 +1,14 @@
 <!-- Dashboard partial template. -->
 <template name="dashboard">
-  {{#if currentUser}}
-    <button class="btn logOut">Log Out</button>
-  {{else}}
-    <a href="#" class="signUp">Sign Up</a> or <a href="#" class="logIn">Log In</a>
-  {{/if}}
+  <div class="dashboard col-sm-6">
+    {{#if currentUser}}
+      <button class="btn btn-primary" id="logOut">Log Out</button>
+    {{else}}
+      <div class="auth-links">
+        <a href="#" id="signUp">Sign Up</a> or <a href="#" id="logIn">Log In</a>
+      </div>
+    {{/if}}
+  </div>
 
   <!-- Modal templates included here to allow dashboard links/buttons to toggle them. -->
   {{> signUp}}

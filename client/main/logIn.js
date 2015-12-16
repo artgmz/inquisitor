@@ -1,12 +1,3 @@
-// Log In modal template initialization.
-Template.logIn.onCreated(function () {
-  var self = this;
-
-  // Show invalidity errors. Session variables necessary for use in callbacks.
-  Session.set('invalidUsername', false);
-  Session.set('invalidPassword', false);
-});
-
 // Log In modal template helpers.
 Template.logIn.helpers({
   invalidPassword: function () {

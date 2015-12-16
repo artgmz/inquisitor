@@ -1,12 +1,3 @@
-// Sign Up modal template initialization.
-Template.signUp.onCreated(function () {
-  var self = this;
-
-  // Show invalidity errors. Session variables necessary for use in callbacks.
-  Session.set('invalidUsername', false);
-  Session.set('invalidPassword', false);
-});
-
 // Sign Up modal template helpers.
 Template.signUp.helpers({
   invalidPassword: function () {

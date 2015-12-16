@@ -1,0 +1,21 @@
+// Dashboard partial template styles.
+@import '../globals.less';
+
+.dashboard {
+  text-align: center;
+
+  // Small devices (tablets, 768px and up)
+  @media (min-width: @screen-sm-min) {
+    text-align: right;
+
+    .auth-links {
+      position: relative;
+      top: 12px;
+    }
+
+    button {
+      position: relative;
+      top: 4px;
+    }
+  }
+}

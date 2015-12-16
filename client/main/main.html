@@ -1,21 +1,25 @@
 <!-- Main layout template. -->
 <template name="main">
-  <header>
-    <a href="{{pathFor route='home'}}">
-      <h1>inquisitor!</h1>
-    </a>
-    {{> dashboard}}
-    <hr />
-  </header>
+  <div class="container main">
+    <header class="row">
+      <div class="col-sm-6">
+        <a href="{{pathFor route='home'}}">
+          <h1>inquisitor!</h1>
+        </a>
+      </div>
+      {{> dashboard}}
+      <hr />
+    </header>
 
-  {{> yield}}
+    {{> yield}}
 
-  <footer>
-    <hr />
-    <p>
-      Created by 
-      <a href="https://github.com/artgmz" target="_blank">Arturo Gomez</a> 
-      in Los Angeles, California.
-    </p>
-  </footer>
+    <footer class="row">
+      <hr />
+      <p>
+        Created by 
+        <a href="https://github.com/artgmz" target="_blank">Arturo Gomez</a> 
+        in Los Angeles.
+      </p>
+    </footer>
+  </div>
 </template>

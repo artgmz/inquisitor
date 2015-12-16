@@ -1,0 +1,35 @@
+// Main layout template styles.
+@import '../globals.less';
+
+.main {
+  padding-bottom: 10px;
+  padding-top: 10px;
+
+  header {
+    text-align: center;
+
+    h1 {
+      margin-bottom: 5px;
+    }
+
+    hr {
+      clear: both;
+      margin: 10px 0;
+    }
+  }
+
+  footer {
+    text-align: center;
+  }
+
+  // Small devices (tablets, 768px and up)
+  @media (min-width: @screen-sm-min) {
+    padding-bottom: 15px;
+    padding-top: 15px;
+
+    header h1 {
+      margin-bottom: 10px;
+      text-align: left;
+    }
+  }
+}

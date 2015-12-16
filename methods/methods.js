@@ -19,6 +19,9 @@ Meteor.methods({
       if (!error) {
         Quizzes.update(quizId, { $push: { scores: _id } });
       }
+      else {
+        throw new Meteor.Error('not-inserted');
+      }
     });
   }
 });

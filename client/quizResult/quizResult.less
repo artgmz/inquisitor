@@ -1,0 +1,30 @@
+// Main layout template styles.
+@import '../globals.less';
+
+.quiz-result {
+  text-align: center;
+
+  header {
+    margin-bottom: 10px;
+
+    h4 {
+      margin-bottom: 0;
+    }
+  }
+
+  .content {
+    margin-bottom: 60px;
+  }
+
+  button {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  // Small devices (tablets, 768px and up)
+  @media (min-width: @screen-sm-min) {
+    button {
+      width: initial;
+    }
+  }
+}

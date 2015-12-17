@@ -11,8 +11,6 @@ Template.quizScore.helpers({
     var self = this;
     var createdDate = new Date(self.createdAt);
 
-    return (createdDate.getMonth() + 1) + '/' +
-           createdDate.getDate() + '/' +
-           createdDate.getFullYear();
+    return (createdDate.getMonth() + 1) + '/' + createdDate.getFullYear();
   }
 });

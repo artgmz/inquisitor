@@ -1,37 +1,48 @@
 <!-- Quiz view template. -->
 <template name="quiz">
-  <header>
-    <h3>{{quiz.name}}</h3>
-    <h4>{{quiz.description}} - {{totalQuestions}} Questions</h4>
-  </header>
+  <div class="quiz">
+    <header>
+      <h2>{{quiz.name}}</h2>
+      <h3>
+        {{quiz.description}} 
+        <span class="totalQuestions">- {{totalQuestions}} Questions</span>
+      </h3>
+      <button class="btn btn-primary btn-lg">Take this quiz!</button>
+    </header>
 
-  <button class="btn">Take this quiz!</button>
+    <div class="leaderboard list col-xs-12 col-sm-5">
+      <h4>Leaderboard</h4>
+      <hr />
 
-  <div>
-    <h5>Leaderboard</h5>
+      {{#if hasLeaderboardScores}}
+        <ol>
+          {{#each leaderboardScores}}
+            {{> quizScore}}
+          {{/each}}
+        </ol>
+      {{else}}
+        <p>No one has taken this quiz. Be the first!</p>
+      {{/if}}
+    </div>
 
-    {{#if hasLeaderboardScores}}
-      <ol>
-        {{#each leaderboardScores}}
-          {{> quizScore}}
-        {{/each}}
-      </ol>
-    {{else}}
-      <p>No one has taken this quiz. Be the first!</p>
-    {{/if}}
-  </div>
+    <!-- Spacing between lists. -->
+    <div class="hidden-xs col-sm-2"></div>
 
-  <div>
-    <h5>My Scores</h5>
+    <div class="user-scores list col-xs-12 col-sm-5">
+      <h4>My Scores</h4>
+      <hr />
 
-    {{#if hasUserScores}}
-      <ul>
-        {{#each userScores}}
-          {{> quizScore}}
-        {{/each}}
-      </ul>
-    {{else}}
-      <p>You have yet to save a score for this quiz!</p>
-    {{/if}}
+      {{#if hasUserScores}}
+        <ul class="list-unstyled">
+          {{#each userScores}}
+            {{> quizScore}}
+          {{/each}}
+        </ul>
+      {{else}}
+        <p>You have yet to save a score for this quiz!</p>
+      {{/if}}
+    </div>
+
+    <div class="clearfix"></div>
   </div>
 </template>

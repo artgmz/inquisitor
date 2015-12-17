@@ -1,15 +1,17 @@
 <!-- Quiz Question partial template. -->
 <template name="quizQuestion">
-  <h4>{{prompt}}</h4>
+  <div class="quiz-question">
+    <h4>{{prompt}}</h4>
 
-  <form>
-    {{#each options}}
-      <div class="radio">
-        <label>
-          <input type="radio" name="answerOption" value="{{this}}">
-          {{this}}
-        </label>
-      </div>
-    {{/each}}
-  </form>
+    <form>
+      {{#each options}}
+        <div class="radio">
+          <label>
+            <input type="radio" name="answerOption" value="{{this}}">
+            {{this}}
+          </label>
+        </div>
+      {{/each}}
+    </form>
+  </div>
 </template>

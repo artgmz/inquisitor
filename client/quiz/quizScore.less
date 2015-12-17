@@ -1,0 +1,29 @@
+// Quiz Score partial template styles.
+@import '../globals.less';
+
+.quiz-score {
+  .username {
+    .truncate(90px);
+    font-weight: 600;
+  }
+
+  .score-data {
+    display: inline-block;
+    float: right;
+
+    .score {
+      color: @color-gray-light;
+    }
+
+    .date {
+      color: @color-primary-lighter;
+    }
+  }
+
+  // Small devices (tablets, 768px and up)
+  @media (min-width: @screen-sm-min) {
+    .username {
+      .truncate(180px);
+    }
+  }
+}

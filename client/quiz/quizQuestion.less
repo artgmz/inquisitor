@@ -1,0 +1,26 @@
+// Quiz Question partial template styles.
+@import '../globals.less';
+
+.quiz-question {
+  margin: 0 auto;
+  max-width: 90%;
+
+  h4 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  form {
+    margin-bottom: 20px;
+  }
+
+  // Intermediate breakpoint for extra small devices (phones, 544px and up).
+  @media (min-width: 544px) {
+    max-width: 70%;
+  }
+
+  // Small devices (tablets, 768px and up)
+  @media (min-width: @screen-sm-min) {
+    max-width: 50%;
+  }
+}

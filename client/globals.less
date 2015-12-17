@@ -6,13 +6,21 @@
 @screen-lg-min: 1200px;
 
 // Colors.
-@color-primary: #714897;
-@color-primary-darker: darken(@color-primary, 10%);
+@color-primary:         #714897;
+@color-primary-darker:  darken(@color-primary, 10%);
 @color-primary-lighter: lighten(@color-primary, 40%);
+
+@color-gray-darker:    lighten(#000, 13.5%);
+@color-gray-dark:      lighten(#000, 20%);   // default text color
+@color-gray:           lighten(#000, 33.5%);
+@color-gray-light:     lighten(#000, 46.7%);
+@color-gray-lighter:   lighten(#000, 93.5%);
+
+@color-white:          #fff;
 
 // Defaults.
 body {
-  background-color: #eee
+  background-color: @color-gray-lighter;
 }
 
 h1,
@@ -67,10 +75,24 @@ input[type="password"]:focus {
   outline: 0 none;
 }
 
-.btn-primary {
+.btn-primary,
+.btn-primary[disabled] {
   background-color: @color-primary;
   border-color: @color-primary;
+}
 
+.btn-primary {
+  &:focus,
+  &:hover,
+  &:active,
+  &:active:hover,
+  &:active:focus {
+    background-color: @color-primary-darker;
+    border-color: @color-primary-darker;
+  }
+}
+
+.btn-primary[disabled] {
   &:focus,
   &:hover,
   &:active,
@@ -79,6 +101,16 @@ input[type="password"]:focus {
     background-color: @color-primary;
     border-color: @color-primary;
   }
+}
+
+// Mixins.
+.truncate(@width: 100%) {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: top;
+  white-space: nowrap;
+  width: @width;
 }
 
 // Small devices (tablets, 768px and up)

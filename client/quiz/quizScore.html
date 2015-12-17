@@ -1,8 +1,14 @@
 <!-- Quiz Score partial template. -->
 <template name="quizScore">
-  <li>
-    <span>{{username}} </span>
-    <span>{{correctAnswers}}/{{totalQuestions}} ({{correctAnswerPercentage}}%) </span>
-    <span>{{formattedScoreCreationDate}}</span>
-  </li>
+  <div class="quiz-score">
+    <li>
+      <span class="username">{{username}} </span>
+      <div class="score-data">
+        <span class="score">
+          {{correctAnswers}}/{{totalQuestions}} ({{correctAnswerPercentage}}%) 
+        </span>
+        <span class="date">{{formattedScoreCreationDate}}</span>
+      </div>
+    </li>
+  </div>
 </template>

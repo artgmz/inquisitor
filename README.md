@@ -3,7 +3,7 @@
 ## Description:
 A small web app as a first attempt at playing with Meteor development. Allows users
 to take quizzes and save their scores, viewing them either on the global leaderboard
-or isolated from other users in order to see improvement over time.
+or isolated from others in order to see improvement over time.
 
 ## Demo:
 Feel free to clone the repo and run it locally, as it isn't currently hosted anywhere.
